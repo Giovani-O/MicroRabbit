@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MicroRabbit.Banking.Application.Services;
 
-internal class AccountService : IAccountService
+public class AccountService : IAccountService
 {
     private readonly IAccountRepository _accountRepository;
 
