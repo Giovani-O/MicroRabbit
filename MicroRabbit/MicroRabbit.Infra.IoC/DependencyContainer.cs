@@ -25,7 +25,7 @@ public class DependencyContainer
         // Application Services
         services.AddTransient<IAccountService, AccountService>();
 
-        // Data
+        //Data
         services.AddTransient<IAccountRepository, AccountRepository>();
         services.AddTransient<BankingDbContext>();
     }
