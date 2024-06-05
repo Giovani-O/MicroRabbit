@@ -1,5 +1,8 @@
+using MicroRabbit.Banking.Domain.Events;
+using MicroRabbit.Domain.Core.Bus;
 using MicroRabbit.Infra.IoC;
 using MicroRabbit.Transfer.Data.Context;
+using MicroRabbit.Transfer.Domain.EventHandlers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
@@ -46,6 +49,14 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+ConfigureEventBus(app);
+
+void ConfigureEventBus(IApplicationBuilder app)
+{
+    var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
+    eventBus.Subscribe<MicroRabbit.Transfer.Domain.Events.TransferCreatedEvent, TransferEventHandler>();
+}
 
 app.UseAuthorization();
 
