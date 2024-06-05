@@ -13,7 +13,7 @@ builder.Services.AddDbContext<TransferDbContext>(options =>
 );
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -30,7 +30,7 @@ RegisterServices(builder.Services);
 
 void RegisterServices(IServiceCollection services)
 {
-    DependencyContainer.RegisterServices(services);
+    TransferDependencyContainer.RegisterServices(services);
 }
 
 var app = builder.Build();
